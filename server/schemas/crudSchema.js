@@ -21,4 +21,4 @@ const crudSchema = new Schema({
     },
 })
 
-module.exports = mongoose.model("inventory", crudSchema)
+module.exports = mongoose.model("crud", crudSchema)

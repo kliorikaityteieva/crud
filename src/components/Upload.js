@@ -15,7 +15,7 @@ function Upload({set}) {
             password: password.current.value,
         }
         http.post('/upload', data).then(res => {
-            set(res.products)
+            set(res.consumers)
         })
     }
 
