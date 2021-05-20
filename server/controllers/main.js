@@ -1,30 +1,30 @@
-const consumerDb = require('../schemas/crudSchema')
+const userDb = require('../schemas/crudSchema')
 
 const getAll = async () => {
-    return consumerDb.find()
+    return userDb.find()
 }
 
 module.exports = {
     upload: async (req, res) => {
         const {name,age,email,password} = req.body
-        const prod = new consumerDb()
-        prod.name = name
-        prod.age = age
-        prod.email = email
-        prod.password = password
-        await prod.save()
-        const consumers = await getAll()
-        res.send({consumers})
+        const user = new userDb()
+        user.name = name
+        user.age = age
+        user.email = email
+        user.password = password
+        await user.save()
+        const users = await getAll()
+        res.send({users})
     },
     delete: async (req, res) => {
         const {id} = req.params
-        await consumerDb.findOneAndDelete({_id: id})
-        const consumers = await getAll()
-        res.send({consumers})
+        await userDb.findOneAndDelete({_id: id})
+        const users = await getAll()
+        res.send({users})
     },
     all: async (req, res) => {
-        const consumers = await getAll()
-        res.send({consumers})
+        const users = await getAll()
+        res.send({users})
     },
     update: async (req, res) => {
         let {side, id, current} = req.params
@@ -33,10 +33,10 @@ module.exports = {
         if(Number(current) === 0 && side === -1) {
             null
         } else {
-            await consumerDb.findOneAndUpdate({_id: id}, {$inc: {quantity: side}})
+            await userDb.findOneAndUpdate({_id: id}, {$inc: {quantity: side}})
         }
 
-        const consumers = await getAll()
-        res.send({consumers})
+        const user = await getAll()
+        res.send({user})
     }
 }

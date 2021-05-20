@@ -2,7 +2,7 @@ import './App.css';
 import {useState as state, useEffect as effect} from 'react'
 import http from "./plugins/Fetch"
 import Upload from "./components/Upload";
-import Consumer from "./components/Consumer";
+import Consumer from "./components/User";
 
 function App() {
   const [consumers, setConsumers] = state([])

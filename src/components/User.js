@@ -1,34 +1,34 @@
 import React from 'react';
 import http from "../plugins/Fetch"
 
-function Consumer({prod, set}) {
+function User({user, set}) {
 
     const del = () => {
-        http.get('/delete/'+prod._id).then(res => {
-            set(res.consumers)
+        http.get('/delete/'+user._id).then(res => {
+            set(res.users)
         })
     }
 
     const update = (side) => {
-        http.get(`/update/${side}/${prod._id}/${prod.name}`).then(res => {
-            set(res.consumers)
+        http.get(`/update/${side}/${user._id}/${user.name}`).then(res => {
+            set(res.users)
         })
     }
 
     return (
         <div className="d-flex prod">
-            <div>Vardas: {prod.name}</div>
+            <div>Vardas: {user.name}</div>
             <div className="d-flex">
                 <button onClick={() => update('minus')}>Minus</button>
-                <div>Amžius: {prod.age}</div>
+                <div>Amžius: {user.age}</div>
                 <button onClick={() => update('plus')}>Plus</button>
             </div>
-            <div>El.paštas: {prod.email}</div>
-            <div>Slaptažodis: {prod.password}</div>
+            <div>El.paštas: {user.email}</div>
+            <div>Slaptažodis: {user.password}</div>
 
             <button onClick={del}>Delete</button>
         </div>
     );
 }
 
-export default Consumer;
+export default User;

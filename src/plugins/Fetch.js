@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3003'
+const baseUrl = 'http://localhost:3001'
 
 export default {
     post: async (route, data) => {
