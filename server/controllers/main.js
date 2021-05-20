@@ -1,3 +1,6 @@
+
+import Upload from "../../src/components/Upload";
+
 const userDb = require('../schemas/crudSchema')
 
 const getAll = async () => {
@@ -15,12 +18,14 @@ module.exports = {
         await user.save()
         const users = await getAll()
         res.send({users})
+        return userDb.upload()
     },
     delete: async (req, res) => {
         const {id} = req.params
         await userDb.findOneAndDelete({_id: id})
         const users = await getAll()
         res.send({users})
+        return userDb.delete()
     },
     all: async (req, res) => {
         const users = await getAll()
@@ -39,4 +44,7 @@ module.exports = {
         const user = await getAll()
         res.send({user})
     }
+
 }
+
+

@@ -5,23 +5,23 @@ import Upload from "./components/Upload";
 import Consumer from "./components/User";
 
 function App() {
-  const [consumers, setConsumers] = state([])
+  const [users, setUsers] = state([])
 
   effect(() => {
     http.get('/all').then(res => {
-      setConsumers(res.consumers)
+      setUsers(res.users)
     })
   }, [])
 
 
   return (
       <div className="App">
-        <Upload set={setConsumers}/>
+        <Upload set={setUsers}/>
         <div className="m-20">
-          {consumers.map((prod, index) =>
+          {users.map((prod, index) =>
               <Consumer key={index}
-                       prod={prod}
-                       set={setConsumers}
+                       user={users}
+                       set={setUsers}
               />
           )}
         </div>
