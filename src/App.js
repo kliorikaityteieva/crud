@@ -2,26 +2,26 @@ import './App.css';
 import {useState as state, useEffect as effect} from 'react'
 import http from "./plugins/Fetch"
 import Upload from "./components/Upload";
-import Product from "./components/Product";
+import Consumer from "./components/Consumer";
 
 function App() {
-  const [products, setProducts] = state([])
+  const [consumers, setConsumers] = state([])
 
   effect(() => {
     http.get('/all').then(res => {
-      setProducts(res.products)
+      setConsumers(res.consumers)
     })
   }, [])
 
 
   return (
       <div className="App">
-        <Upload set={setProducts}/>
+        <Upload set={setConsumers}/>
         <div className="m-20">
-          {products.map((prod, index) =>
-              <Product key={index}
+          {consumers.map((prod, index) =>
+              <Consumer key={index}
                        prod={prod}
-                       set={setProducts}
+                       set={setConsumers}
               />
           )}
         </div>

@@ -10,7 +10,7 @@ function Consumer({prod, set}) {
     }
 
     const update = (side) => {
-        http.get(`/update/${side}/${prod._id}/${prod.quantity}`).then(res => {
+        http.get(`/update/${side}/${prod._id}/${prod.name}`).then(res => {
             set(res.consumers)
         })
     }
@@ -27,7 +27,6 @@ function Consumer({prod, set}) {
             <div>Slaptažodis: {prod.password}</div>
 
             <button onClick={del}>Delete</button>
-            <button onClick={ed}>Edit</button>
         </div>
     );
 }

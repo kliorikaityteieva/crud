@@ -91,10 +91,20 @@
   cursor: pointer;
 }
 
-.prod {
-  padding: 20px;
-  justify-content: space-between;
-  width: 90%;
-  background-color: #eeeeee;
+
+
+input{
+  background-color: #e5e5e5;
+  border: none;
+  height: 30px;
+  width: 150px;
+  margin: 10px;
+}
+
+button{
+  background-color: #56d9fc;
+  border: none;
+  height: 30px;
+  width: 150px;
   margin: 10px;
 }
